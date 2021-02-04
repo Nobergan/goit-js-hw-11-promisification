@@ -12,12 +12,10 @@ const makeTransaction = transaction => {
       const canProcess = Math.random() > 0.3;
 
       if (canProcess) {
-        const success = { id: transaction, time: delay };
-        resolve(success);
+        resolve({ id: transaction.id, time: delay });
       }
 
-      const error = { id: transaction };
-      reject(error);
+      reject(transaction.id);
     }, delay);
   });
 };
